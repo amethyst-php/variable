@@ -5,6 +5,7 @@ namespace Amethyst\Models;
 use Amethyst\Common\ConfigurableModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Railken\Lem\Contracts\EntityContract;
 
 class Variable extends Model implements EntityContract
@@ -20,5 +21,13 @@ class Variable extends Model implements EntityContract
     {
         $this->ini('amethyst.variable.data.variable');
         parent::__construct($attributes);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function target(): MorphTo
+    {
+        return $this->morphTo();
     }
 }

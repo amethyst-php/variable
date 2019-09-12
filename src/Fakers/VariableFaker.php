@@ -18,6 +18,8 @@ class VariableFaker extends Faker
         $bag = new Bag();
         $bag->set('key', $faker->name);
         $bag->set('value', $faker->name);
+        $bag->set('target_type', 'foo');
+        $bag->set('target', FooFaker::make()->parameters()->toArray());
 
         return $bag;
     }

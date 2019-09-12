@@ -16,6 +16,8 @@ class CreateVariablesTable extends Migration
             $table->increments('id');
             $table->string('key');
             $table->string('value');
+            $table->string('target_type');
+            $table->integer('target_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
